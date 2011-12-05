@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Now Chat.</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+<script src="nowjs/now.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	now.name = prompt("What's your name?", "");
+	
+	now.receiveMessage = function(name, msg){
+	$('<div></div>').text(name + ": " + msg).appendTo("#msg");
+	};
+	
+	$("#send-button").click(function(){
+	 now.distributeMessage($("#text-input").val());
+	 $("#text-input").val("");
+	});
+});
+</script>
+</head>
+<body>
+<div id="msg">
+</div>
+<input type="text" id="text-input" />
+<input type="button" id="send-button" value="Send" />
+
+
+</body>
+</html>
